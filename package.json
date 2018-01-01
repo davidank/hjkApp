@@ -1,0 +1,44 @@
+{
+  "name": "hjk-app",
+  "version": "1.0.0",
+  "description": "music related prototype",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server.js",
+    "build": "rimraf dist && cross-env NODE_ENV=production webpack --config ./webpack.production.config.js --progress --profile --colors"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/henry-jeromes-kingsman/hjkApp.git"
+  },
+  "author": "henry-jeromes-kingsman",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/henry-jeromes-kingsman/hjkApp/issues"
+  },
+  "homepage": "https://github.com/henry-jeromes-kingsman/hjkApp#readme",
+  "dependencies": {
+    "autoprefixer": "^7.2.3",
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-react-hmre": "^1.1.1",
+    "babel-preset-stage-0": "^6.24.1",
+    "cross-env": "^5.1.3",
+    "express": "^4.16.2",
+    "extract-text-webpack-plugin": "^3.0.2",
+    "html-webpack-plugin": "^2.30.1",
+    "nodemon": "^1.14.7",
+    "postcss-loader": "^2.0.9",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
+    "stats-webpack-plugin": "^0.6.1",
+    "style-loader": "^0.19.1",
+    "webpack": "^3.10.0",
+    "webpack-dev-middleware": "^2.0.3",
+    "webpack-hot-middleware": "^2.21.0"
+  }
+}
