@@ -42,6 +42,12 @@ module.exports = {
     }, {
       test: /\.css$/,
       loader: 'style!css?modules&localIdentName=[name]---[local]---[hash:base64:5]'
-    }]
+    }, {
+      test: /\.mp3$/,
+      loader: 'file-loader',
+      query: {
+         name: 'static/media/[name].[hash:8].[ext]'
+      }
+   }]
   }
 };

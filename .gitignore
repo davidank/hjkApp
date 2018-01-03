@@ -59,6 +59,3 @@ typings/
 
 # Output of Webpack
 dist
-
-# Music
-frontend/music
