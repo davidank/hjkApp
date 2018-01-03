@@ -24,7 +24,9 @@ const init = (soundFile) => {
   analyser.fftSize = 2048; // Fast Fourier Transform
   let bufferLength = analyser.fftSize;
   let dataArray = new Uint8Array(bufferLength); // ? look it up
-  let dataArrayF = new Uint8Array(analyser.frequencyBinCount);
+
+  let bufferLengthF = analyser.frequencyBinCount;
+  let dataArrayF = new Uint8Array(bufferLengthF);
 
   // Canvas Init
   const canvas = document.getElementById('musicVisualizer');
@@ -93,15 +95,15 @@ const init = (soundFile) => {
     ctxf.fillStyle = 'rgb(255, 255, 255)';
     ctxf.fillRect(0, 0, WIDTH_F, HEIGHT_F);
 
-    let sliceWidth = WIDTH_F * 1.0 / dataArrayF.length;
+    let sliceWidth = (WIDTH_F / bufferLengthF) * 1.6;
     let x = 0;
 
     for (let i = 0; i < dataArrayF.length; i++) {
-      let barHeight = dataArrayF[i] - 100;
+      let barHeight = dataArrayF[i];
       // let colorVal = max255Scale(barHeight);
       let colorVal = 0;
       ctxf.fillStyle = `rgb(${colorVal}, ${colorVal}, ${colorVal})`;
-      ctxf.fillRect(x, HEIGHT_F, sliceWidth, -barHeight);
+      ctxf.fillRect(x, HEIGHT_F-barHeight/2, sliceWidth, barHeight/2);
       x += sliceWidth;
     }
   };
