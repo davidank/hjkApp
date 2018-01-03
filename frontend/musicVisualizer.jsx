@@ -9,18 +9,15 @@ export default class MusicVisualizer extends React.Component {
   }
 
   componentDidMount() {
-    init();
+    init(soundFile);
   }
 
   render() {
     return(
       <div>
-        <div>
-          <audio controls>
-            <source src={soundFile} type="audio/mpeg"/>
-          </audio>
+        <div id="audioPlayer">
         </div>
-        <canvas id="musicVisualizer"></canvas>
+        <canvas id="musicVisualizer" width="640" height="100"></canvas>
       </div>
     );
   }
