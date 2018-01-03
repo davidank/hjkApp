@@ -1,5 +1,6 @@
 import React from 'react';
 import init from './musicVisualizerUtil.js';
+import soundFile from './music/test.mp3';
 
 export default class MusicVisualizer extends React.Component {
   constructor(props) {
@@ -14,6 +15,11 @@ export default class MusicVisualizer extends React.Component {
   render() {
     return(
       <div>
+        <div>
+          <audio controls>
+            <source src={soundFile} type="audio/mpeg"/>
+          </audio>
+        </div>
         <canvas id="musicVisualizer"></canvas>
       </div>
     );
