@@ -18,6 +18,7 @@ export default class MusicVisualizer extends React.Component {
         <div id="audioPlayer">
         </div>
         <canvas id="musicVisualizer" width="640" height="100"></canvas>
+        <canvas id="musicVisualizerFreq" width="640" height="100"></canvas>
       </div>
     );
   }
