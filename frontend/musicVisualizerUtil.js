@@ -99,7 +99,7 @@ const init = (soundFile) => {
     let x = 0;
 
     for (let i = 0; i < dataArrayF.length; i++) {
-      let barHeight = dataArrayF[i];
+      let barHeight = dataArrayF[i] - 70;
       // let colorVal = max255Scale(barHeight);
       let colorVal = 0;
       ctxf.fillStyle = `rgb(${colorVal}, ${colorVal}, ${colorVal})`;
