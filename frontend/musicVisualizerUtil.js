@@ -17,12 +17,20 @@ const max255Scale = (num) => {
   return newVal;
 };
 
+const logScaleXTranspose = (dataArray) => {
+  let logArray = [];
+  for (let i = 1; i < dataArray.length; i = i * 2) {
+    logArray.push(dataArray[i]);
+  }
+  return logArray;
+};
+
 const init = (soundFile) => {
   // Web Audio Init
   let audioCtx = new (window.AudioContext || window.webkitAudioContext)();
   let analyser = audioCtx.createAnalyser();
-  analyser.fftSize = 2048; // Fast Fourier Transform
-  let bufferLength = analyser.fftSize;
+  analyser.fftSize = 8192; // Fast Fourier Transform
+  let bufferLength = 2048;
   let dataArray = new Uint8Array(bufferLength); // ? look it up
 
   let bufferLengthF = analyser.frequencyBinCount;
@@ -95,11 +103,19 @@ const init = (soundFile) => {
     ctxf.fillStyle = 'rgb(255, 255, 255)';
     ctxf.fillRect(0, 0, WIDTH_F, HEIGHT_F);
 
-    let sliceWidth = (WIDTH_F / bufferLengthF) * 1.6;
+    let logWidth = 40;
     let x = 0;
-
-    for (let i = 0; i < dataArrayF.length; i++) {
-      let barHeight = dataArrayF[i] - 70;
+    
+    // console.log(dataArrayF.length);
+    
+    let logArray = dataArrayF;
+    
+    // console.log(logArray);
+    
+    for (let i = 0; i < logArray.length; i++) {
+      let sliceWidth = (WIDTH_F / bufferLengthF) * logWidth;
+      logWidth = logWidth * 0.99;
+      let barHeight = logArray[i] - 70;
       // let colorVal = max255Scale(barHeight);
       let colorVal = 0;
       ctxf.fillStyle = `rgb(${colorVal}, ${colorVal}, ${colorVal})`;
