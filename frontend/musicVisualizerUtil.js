@@ -119,7 +119,7 @@ const init = (soundFile) => {
       // let colorVal = max255Scale(barHeight);
       let colorVal = 0;
       ctxf.fillStyle = `rgb(${colorVal}, ${colorVal}, ${colorVal})`;
-      ctxf.fillRect(x, HEIGHT_F-barHeight/2, sliceWidth, barHeight/2);
+      ctxf.fillRect(x, HEIGHT_F-barHeight/2, sliceWidth + 1, barHeight/2);
       x += sliceWidth;
     }
   };
